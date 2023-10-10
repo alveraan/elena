@@ -1,0 +1,56 @@
+entity {
+	// stand-alone comment
+	layers {
+		"game/sp/e2m3_core/e2m3_core_geo/vis_layer_meteors_geo1"
+		"game/sp/e2m3_core/e2m3_core_geo/vis_layer_meteors_geo2"
+	}
+	instanceId = 1734506042;
+	originalName = "_light_spot_2";
+	entityDef world { // comment after some relevant stuff
+	inherit = "worldspawn";
+	class = "idWorldspawn";
+	expandInheritance = false;
+	poolCount = 0;
+	poolGranularity = 2;
+	networkReplicated = true;
+	disableAIPooling = false;
+	edit = {
+		globalAIsettings = "default";
+		staticAIsettings = "default";
+		globalDataComponentDecl = "globaldatacomponent";
+		importanceDecl = "default";
+		automapDecl = "game/sp/e2m3_core/e2m3_core";
+		envSettings = "user/tgarza/black_sky";
+		devmapInvLoadout = "devinvloadout/sp/e2m3";
+		declDemonBounty = "demonbounty/heavy_and_larger";
+		declDemonBountyMgr = "demonbountymanager/e2m3";
+	}
+}
+}
+entity {
+	entityDef geo_volume_nav_obstacle_1 {
+	inherit = "volume/nav_obstacle";
+	class = "idAASObstacle";
+	expandInheritance = false;
+	poolCount = 0;
+	poolGranularity = 2;
+	networkReplicated = false;
+	disableAIPooling = false;
+	edit = {
+		clipModelInfo = {
+			type = "CLIPMODEL_RENDERMODEL";
+			clipModelName = "maps/game/sp/e2m3_core/e2m3_core/geo_volume_nav_obstacle_1";
+		}
+		cutType = "CUT_DYNAMIC";
+		startOn = true;
+		spawnPosition = {
+			x = 2248;
+			y = 2.68220901e-07;
+			z = -60;
+		}
+		renderModelInfo = {
+			model = "maps/game/sp/e2m3_core/e2m3_core/geo_volume_nav_obstacle_1";
+		}
+	}
+}
+}

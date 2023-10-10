@@ -1,0 +1,5 @@
+  Version 7
+HierarchyVersion 1
+properties {
+	"mapSkipsCompile" = "maps/game/dlc2/e5m2_earth/e5m2_earth_art_clip_opening_blockout"
+}

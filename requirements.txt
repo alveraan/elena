@@ -1,0 +1,2 @@
+parsimonious
+PyQt6

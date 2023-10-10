@@ -1,0 +1,56 @@
+Version 7
+HierarchyVersion 1
+entity {
+	entityDef geo_volume_nav_obstacle_1 {
+	inherit = "volume/nav_obstacle";
+	class = "idAASObstacle";
+	expandInheritance = false;
+	poolCount = 0;
+	poolGranularity = 2;
+	networkReplicated = false;
+	disableAIPooling = false;
+	edit = {
+		clipModelInfo = {
+			type = "CLIPMODEL_RENDERMODEL";
+			clipModelName = "maps/game/sp/e2m3_core/e2m3_core/geo_volume_nav_obstacle_1";
+		}
+		cutType = "CUT_DYNAMIC";
+		startOn = true;
+		spawnPosition = {
+			x = 2248;
+			y = 2.68220901e-07;
+			z = -60;
+		}
+		renderModelInfo = {
+			model = "maps/game/sp/e2m3_core/e2m3_core/geo_volume_nav_obstacle_1";
+		}
+	}
+}
+}
+entity {
+	entityDef geo_volume_nav_obstacle_2 {
+	inherit = "volume/nav_obstacle";
+	class = "idAASObstacle";
+	expandInheritance = false;
+	poolCount = 0;
+	poolGranularity = 2;
+	networkReplicated = false;
+	disableAIPooling = false;
+	edit = {
+		clipModelInfo = {
+			type = "CLIPMODEL_RENDERMODEL";
+			clipModelName = "maps/game/sp/e2m3_core/e2m3_core/geo_volume_nav_obstacle_1";
+		}
+		cutType = "CUT_DYNAMIC";
+		startOn = true;
+		spawnPosition = {
+			x = 2248;
+			y = 2.68220901e-07;
+			z = -60;
+		}
+		renderModelInfo = {
+			model = "maps/game/sp/e2m3_core/e2m3_core/geo_volume_nav_obstacle_1";
+		}
+	}
+}
+}

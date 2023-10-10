@@ -1,0 +1,68 @@
+entity {
+	// stand-alone comment
+	layers {
+		"game/sp/e2m3_core/e2m3_core_geo/vis_layer_meteors_geo1"
+		"game/sp/e2m3_core/e2m3_core_geo/vis_layer_meteors_geo2"
+	}
+	instanceId = 1734506042;
+	originalName = "_light_spot_2";
+	entityDef world { // comment after some relevant stuff
+	inherit = "worldspawn";
+	class = "idWorldspawn";
+	expandInheritance = false;
+	poolCount = 0;
+	poolGranularity = 2;
+    dormancy = {
+    allowDormancy = false;
+    allowPvsDormancy = false;
+        arbitraryKey = {
+            num = 1;
+            item[1] = {
+                value = "some value";
+            }
+            item[2] = {
+                value = "some value 2";
+            }
+            item[4] = {
+                value = "some value 3";
+                anotherkey = {
+                    subkey = "subvalue";
+                }
+            }
+        }
+    }
+	networkReplicated = true;
+	disableAIPooling = false;
+	edit = {
+		globalAIsettings = "default";
+		staticAIsettings = "default";
+		globalDataComponentDecl = "globaldatacomponent";
+		importanceDecl = "default";
+		automapDecl = "game/sp/e2m3_core/e2m3_core";
+        targets = {
+            num = 3;
+            item[9] = "fx_func_emitter_10";
+            item[2] = "fx_func_emitter_11";
+            item[4] = "fx_func_emitter_14";
+            item[8] = {
+                allowSomething = false;
+                intValue = 4;
+                num = 12;
+                item[0] = "func_1";
+                item[1] = "func_2";
+                item[2] = "func_3";
+                item[3] = "func_4";
+                item[4] = "func_4";
+                item[5] = "func_4";
+                strValue = "some string";
+            }
+            item[6] = "fx_func_emitter_15";
+            item[7] = "fx_target_relay_blood_splash_6";
+        }
+		envSettings = "user/tgarza/black_sky";
+		devmapInvLoadout = "devinvloadout/sp/e2m3";
+		declDemonBounty = "demonbounty/heavy_and_larger";
+		declDemonBountyMgr = "demonbountymanager/e2m3";
+	}
+}
+}

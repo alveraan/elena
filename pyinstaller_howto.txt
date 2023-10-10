@@ -1,0 +1,7 @@
+Install pyinstaller in the virtual environment.
+in Elena (not Elena/elena), execute: pyinstaller -n Elena --add-data README.txt;. --noconsole --paths elena --onedir --icon=elena/assets/icon.png elena/gui.py
+
+To solve problems with multiprocessing, I had to import
+from multiprocessing import freeze_support in gui.py and put
+freeze_support()
+as the first line after if __name__ == '__main__':
