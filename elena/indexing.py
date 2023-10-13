@@ -4,11 +4,18 @@ from math import sqrt
 class EntityListItemIndexer:
     """
     Very simple reverse indexer for entities data. The data is assumed to be
-    a dictionary where the keys are entity def names and the values are dicts
-    that represent the entity.
+    a dictionary of key/value pairs. The key is the entity def name
+    (a string) and the value is a dict that contains the key 'entity'. The
+    corresponding value for the 'entity' key is the actual entity data as
+    returned by EntityParser.
     
     This is a little different than what the parsers in the parsers module
     return, so a coversion might be necessary before using this indexer.
+    This indexer was created when the gui started to use a dictionary for
+    its list data instead of a list. Note: The older indexer,
+    EntityPositionIndexer, still works directly with the structure returned
+    by the parsers, but as it hasn't been used by the gui for some time,
+    doesn't have as many methods as this indexer.
     
     Stores various dictionaries whose keys are tokens. Each key is associated
     with a set of 0 to n entity def names.

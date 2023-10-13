@@ -8,10 +8,10 @@ There are four PEG parsers in this module:
                                later.
 
 The main class to use, however, is MapEntitiesParser, which handles
-everything. It splits the header from the rest and parses it using
-MapHeaderParser. It then splits up all the entity declarations and uses
-EntityParser to parse each one and uses python's ProcessPoolExecutor to put
-the result in a list of dictionaries that each represent an entity.
+complete map .entities files. It splits the header from the rest and parses
+it using MapHeaderParser. It then splits up all the entity declarations
+and uses EntityParser to parse each one and uses python's ProcessPoolExecutor
+to put the result in a list of dictionaries that each represent an entity.
 
 MapEntitiesParser's parse methods return an EnitiesMap instance (see the
 entities module).
@@ -33,6 +33,11 @@ class MapEntitiesParser:
     """
     Parses Doom Eternal map .entities data line by line and
     returns an EntitiesMap instance.
+
+    Splits the header from the rest and parses it using MapHeaderParser. It
+    then splits up all the entity declarations and uses EntityParser to
+    parse each one and uses python's ProcessPoolExecutor to put the result
+    in a list of dictionaries that each represent an entity.
 
     If header data for Version and HierarchyVersion is missing,
     the version and hierarchy_version will be set to -1, while

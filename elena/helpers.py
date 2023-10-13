@@ -37,10 +37,42 @@ class EntityHelper:
             if key == 'inherit':
                 return entity_def[key]
 
+    def fix_item_arrays_entity(self, data:dict) -> dict:
+        """
+        Returns a new dicts with the fixed item arrays, does not modify the
+        original data dict.
+
+        Updates "array" declarations, fixing item[x] and num = x statements,
+        so that the x in item[x] statements for each array will start at 0
+        and increment by 1 with each additional item. For num = x, the x
+        will be set to the number of items in the array.
+        """
+        new_data = {}
+        num_key = None
+        index = 0
+        for key, value in data.items():
+            if key == 'num' and not isinstance(value, dict):
+                num_key = key
+            elif self.re_item_key.match(key):
+                key = f'item[{index}]'
+                index += 1
+            
+            if isinstance(value, dict):
+                new_data[key] = self.fix_item_arrays_entity(value)
+            else:
+                new_data[key] = value
+        
+        if num_key:
+            new_data[num_key]= index
+        
+        return new_data
+
     def fix_item_arrays_simple(self, txt:str) -> str:
         """
         will try to quickly fix item[] array ordering, but will NOT fix the
-        num = x; declarations. Condition: one item[x] declaration per line
+        num = x; declarations. Condition: one item[x] declaration per line.
+
+        It's recommended to use fix_item_arrays_entity instead.
         """
         lines = txt.splitlines()
         line_count = len(lines)
@@ -67,24 +99,3 @@ class EntityHelper:
                 result += '\n'
 
         return result
-
-    def fix_item_arrays_entity(self, data:dict) -> dict:
-        new_data = {}
-        num_key = None
-        index = 0
-        for key, value in data.items():
-            if key == 'num' and not isinstance(value, dict):
-                num_key = key
-            elif self.re_item_key.match(key):
-                key = f'item[{index}]'
-                index += 1
-            
-            if isinstance(value, dict):
-                new_data[key] = self.fix_item_arrays_entity(value)
-            else:
-                new_data[key] = value
-        
-        if num_key:
-            new_data[num_key]= index
-        
-        return new_data

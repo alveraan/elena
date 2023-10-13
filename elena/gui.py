@@ -6,7 +6,7 @@ TODO / ideas:
 - Track if editor text has changed (* next to the label)
 - Create a backup file when opening a file.
 - Move entities in list via drag & drop.
-- Edit other items than entities, like header data (??)
+- Edit other items than entities, like header data, decls (??)
 - ...
 """
 import sys
@@ -820,7 +820,7 @@ class MainWindow(QWidget):
 
     # general actions -----------------------------------------------
     def open_file(self, file_path:str) -> None:
-        dialog_title = 'Loeading'
+        dialog_title = 'Loading'
         dialog_msg = 'Please wait a few seconds, loading file...'
         dialog = self.create_dialog(dialog_title, dialog_msg)
         try:
@@ -1397,7 +1397,7 @@ class CustomSaveFileDialog(QFileDialog):
     def __init__(self, *args, **kwargs):
         super(CustomSaveFileDialog, self).__init__(*args, **kwargs)
         # the following option is needed to avoid self.layout() being
-        # None on Windows:
+        # None on Windows (last tested with Qt5, not Qt6):
         self.setOption(QFileDialog.Option.DontUseNativeDialog, True)
         self.compress_checkbox = QCheckBox("Compress?", self)
         self.layout().addWidget(self.compress_checkbox,
